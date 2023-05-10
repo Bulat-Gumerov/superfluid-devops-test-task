@@ -38,4 +38,5 @@ Go to the AWS ECS console and check that the service is running. Then create a t
 - Use multi-stage builds: Multi-stage builds can be used to create a smaller final image by using a build stage to install dependencies and a production stage to copy only the dependencies and the built application into the final image.
 - Nix won't help in this case, because it is just a yet another package manager, and it is not a good idea to use multiple package managers in one project.
 - Apple switched from x86_64 architecture to ARM64, and it is a good idea to do the same. Try to build the image for ARM64 architecture, because it is more efficient than x86_64, and it is supported by AWS ECS. This will allow to use smaller instances, and reduce the cost of running the service in the cloud. For example, the Amazon t4g.nano instance costs $0.0042 per hour, while the t3.nano instance costs $0.0052 per hour.
-Another issue is that there's some outdated dependencies [in the package.json](https://github.com/superfluid-finance/superfluid-sentinel/blob/master/package.json) file, which could be updated to the latest versions.
+
+- Another issue is that there's some outdated dependencies [in the original package.json](https://github.com/superfluid-finance/superfluid-sentinel/blob/master/package.json) file, which could be updated to the latest versions.
