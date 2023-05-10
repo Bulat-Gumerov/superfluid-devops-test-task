@@ -21,7 +21,7 @@ We want to respect your time so we at most expect you to put in a couple of hour
 - Create a new GitHub secret called AWS_ACCESS_KEY_ID with the access key ID of the user you just created
 - Create a new GitHub secret called AWS_SECRET_ACCESS_KEY with the secret access key of the user you just created
 - Create a new GitHub secret called AWS_REGION with the region you want to deploy to
-- Create a new GitHub secret called DOCKERHUB_USERNAME with your Docker Hub username
+- Create a new GitHub secret called DOCKER_HUB_USERNAME with your Docker Hub username
 - Create a new GitHub secret called DOCKER_HUB_ACCESS_TOKEN with your Docker Hub access token
 - Create a new GitHub secret called TELEGRAM_CI_CHANNEL with the Telegram channel build failures you want to send notifications to
 
@@ -29,7 +29,7 @@ Create the AWS ECS cluster and service with terraform:
 ```terraform plan -var-file="example.tfvars"```
 ```terraform apply -var-file="example.tfvars"```
 
-Go to the AWS ECS console and check that the service is running. Then create a task definition using [AWS Console](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-task-definition.html). Save [the JSON file](https://console.aws.amazon.com/ecs/v2) to the root of the project and name it task-definition.json. Commit the changes and push them to GitHub. The GitHub Actions workflow will be triggered and the service will be updated.
+Go to the AWS ECS console and check that the service is running. Then create a task definition using [AWS Console](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-task-definition.html). Save [the JSON file](https://console.aws.amazon.com/ecs/v2) to the root of the project and name it task-definition.json. Commit the changes and push them to GitHub. The GitHub Actions workflow will be triggered and the ECS service will be updated automatically.
 
 ## Other optimizations
 [Original Docker image](https://github.com/superfluid-finance/superfluid-sentinel/blob/master/Dockerfile) from the superfluid-sentinel repo could be optimized by:
